@@ -16,24 +16,26 @@ function getInput(input) {
 
 }
 //data type and positive validate for calculate button
-function inputValidateForcalculate(a,b,c,d) {
-  
-    if (isNaN(a) == false && isNaN(b) == false && isNaN(c) == false && isNaN(d) == false )
-    {
-        if(a<0 ||b<0 || c<0||d<0){
+function inputValidateForcalculate(income, food, rent, cloth) {
+
+    if (isNaN(income) == false && isNaN(food) == false && isNaN(rent) == false && isNaN(cloth) == false) {
+        if (income < 0 || food < 0 || rent < 0 || cloth < 0) {
             alert('Value cannot be negative');
 
         }
-        else{
-            calculate(a, b, c, d);
+        else {
+            calculate(income, food, rent, cloth);
         }
-        
+
     }
-        
-    else if (isNaN(a) == true || isNaN(b) == true || isNaN(c) == true || isNaN(d) == true )
-    {
+
+    else if (isNaN(income) == true || isNaN(food) == true || isNaN(rent) == true || isNaN(cloth) == true) {
         alert('Type all value in Number');
-    }    
+    }
+    else {
+        alert('Value Cant be Empty');
+
+    }
 }
 //data type and positive validate for save button
 function validatesavebutton(value) {
