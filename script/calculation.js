@@ -13,10 +13,9 @@ function getInput(input) {
     const value = inputField.value;
     inputField.value = '';
     return value;
-    
-    
 
 }
+//data type and positive validate for calculate button
 function inputValidateForcalculate(a,b,c,d) {
   
     if (isNaN(a) == false && isNaN(b) == false && isNaN(c) == false && isNaN(d) == false )
@@ -36,7 +35,7 @@ function inputValidateForcalculate(a,b,c,d) {
         alert('Type all value in Number');
     }    
 }
-
+//data type and positive validate for save button
 function validatesavebutton(value) {
     if (isNaN(value) == false) {
         if (value < 0 ) {
@@ -64,10 +63,19 @@ function calculate(income, food, rent, clothes) {
     
     const totalExpense = parseFloat(food) + parseFloat(rent) + parseFloat(clothes);
     //setting expense value
-    totalExpenseField.innerText = totalExpense;
-    //setting balance
-    balance = income - totalExpense;
-    balanceField.innerText = balance;
+    
+    //checking is income<total expense
+    if(income<totalExpense)
+    {
+        alert('Expense can not be larger than Income')
+    }
+    else{
+        //setting balance
+        totalExpenseField.innerText = totalExpense;
+        balance = income - totalExpense;
+        balanceField.innerText = balance;
+    }
+    
 
 }
 
@@ -94,9 +102,17 @@ document.getElementById('save-button').addEventListener('click', function () {
     //calculating save amount
     const saveBalance = (parseFloat(saveMoney) * parseFloat(incomeMoney)) / 100.0;
     savingField.innerText = saveBalance;
-    //calculating remaining amount
-    const remainingBalance = balance - saveBalance;
-    RemainingBalanceField.innerText = remainingBalance;
+    //validating is balance>saving
+    if(saveBalance>balance)
+    {
+        alert('Saving can not be larger than Balance');
+    }
+    else{
+        //calculating remaining amount
+        const remainingBalance = balance - saveBalance;
+        RemainingBalanceField.innerText = remainingBalance;
+    }
+    
     }
 })
 
